@@ -1,25 +1,99 @@
-# Project One Move-Between-Rooms Pseudocode
-#
-# Graded checkpoint: Module Five Project One
-# Later use: conceptual support for M6; movement design for M7
-#
-# Review the course-provided movement flowchart before completing this file.
-# Write pseudocode, not Python code. Use clear indentation and course-appropriate
-# keywords such as INPUT, OUTPUT, IF, ELSE, WHILE, SET, or similar terms.
+START
 
-# TODO 1: Identify the information the movement process needs.
-# Consider the player's current room and movement command.
+Display current room
 
-# TODO 2: Prompt for and receive the player's movement command.
+Prompt player:
+"Enter a direction (north, south, east, west, secret):"
 
-# TODO 3: Validate whether the requested movement is possible from the
-# current room. Show the decision clearly.
+INPUT player_command
 
-# TODO 4: Describe what happens when the movement command is valid.
-# Include the room update and player output.
+Convert player_command to lowercase
 
-# TODO 5: Describe what happens when the movement command is invalid.
-# Include the output the player should receive.
+IF player_command = "north" THEN
 
-# TODO 6: Show how movement fits into repeated gameplay.
-# The final game continues accepting commands until a required ending occurs.
+    IF north exists from current room THEN
+
+        Move player to room north of current room
+
+        Display:
+        "You moved north."
+
+    ELSE
+
+        Display:
+        "You cannot go that way."
+
+    END IF
+
+ELSE IF player_command = "south" THEN
+
+    IF south exists from current room THEN
+
+        Move player to room south of current room
+
+        Display:
+        "You moved south."
+
+    ELSE
+
+        Display:
+        "You cannot go that way."
+
+    END IF
+
+ELSE IF player_command = "east" THEN
+
+    IF east exists from current room THEN
+
+        Move player to room east of current room
+
+        Display:
+        "You moved east."
+
+    ELSE
+
+        Display:
+        "You cannot go that way."
+
+    END IF
+
+ELSE IF player_command = "west" THEN
+
+    IF west exists from current room THEN
+
+        Move player to room west of current room
+
+        Display:
+        "You moved west."
+
+    ELSE
+
+        Display:
+        "You cannot go that way."
+
+    END IF
+
+ELSE IF player_command = "secret" THEN
+
+    IF current room contains a secret passage THEN
+
+        Move player through secret passage
+
+        Display:
+        "You discovered a secret passage!"
+
+    ELSE
+
+        Display:
+        "There is no secret passage in this room."
+
+    END IF
+
+ELSE
+
+    Display:
+    "Invalid direction. Please try again."
+
+END IF
+
+END
